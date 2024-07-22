@@ -1,0 +1,654 @@
+[
+  {
+    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "name": "Studio Glam Only",
+    "duration": "60 mins",
+    "price": 20000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at our studio for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 9:00am-4:00pm {MON-SAT}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 9:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "NO GELE included",
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "name": "Studio Glam with Gele",
+    "duration": "75 mins",
+    "price": 25000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at our studio for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 9:00am-4:00pm {MON-SAT}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 9:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "GELE included",
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "name": "Professional Photoshoot and Makeup Session",
+    "duration": "180 mins",
+    "price": 55000,
+    "description": [
+      "This service includes a makeup glam at the studio and a photoshoot session with our inhouse photographer { @the_portraithunter / @borokinisholaphotography }"
+    ],
+    "workingHours": ["WORKING HOURS: 9:00am-4:00pm {MON-SAT}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 9:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "NO GELE included",
+      "1 outfit, 3 edited pictures and all unedited pictures.",
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Ketu/Ojota/Maryland/Anthony Environs",
+    "duration": "60 mins",
+    "price": 30000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Yaba/Palmgroove/Bariga/Shomolu/Gbagada Environs",
+    "duration": "60 mins",
+    "price": 30000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "NO GELE included {GELE attracts N5,000 extra}",
+      "Delay attracts an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Ikeja/Ogba/Berger Environs",
+    "duration": "90 mins",
+    "price": 35000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm} attracts an EXTRA CHARGE of N10,000",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attracts an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Oshodi/Mushin Environs",
+    "duration": "90 mins",
+    "price": 35000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Surulere/Ebute-Metta Environs",
+    "duration": "90 mins",
+    "price": 35000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Agege/Ipaja/Egbeda Environs",
+    "duration": "90 mins",
+    "price": 40000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Ikorodu Environs",
+    "duration": "90 mins",
+    "price": 50000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Abule Egba-Alagbado Environs",
+    "duration": "90 mins",
+    "price": 45000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "name": "Victoria Island/Ikoyi Environs",
+    "duration": "90 mins",
+    "price": 40000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "Banana Island/Lekki Phase 1/Ikate Environs",
+    "duration": "90 mins",
+    "price": 45000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins",
+      "Touch-ups (wait-time) attracts an extra charge of N5,000 per outfit/30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "Jakande/Osapa/Ikota/Chevron Environs",
+    "duration": "90 mins",
+    "price": 55000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins",
+      "Touch-ups (wait-time) attracts an extra charge of N5,000 per outfit/30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "VGC Environs",
+    "duration": "90 mins",
+    "price": 60000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins",
+      "Touch-ups (wait-time) attracts an extra charge of N5,000 per outfit/30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "Ajah Environs",
+    "duration": "90 mins",
+    "price": 65000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins",
+      "Touch-ups (wait-time) attracts an extra charge of N5,000 per outfit/30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "Epe Environs",
+    "duration": "90 mins",
+    "price": 75000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your parties, birthdays, shoots etc.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 8:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 8:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N5,000}",
+      "Delay attract an extra charge of N5,000 per 30mins",
+      "Touch-ups (wait-time) attracts an extra charge of N5,000 per outfit/30mins"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "name": "Mainland - Ketu/Yaba/Surulere/Ikeja/Gbagada Environs",
+    "duration": "180 mins",
+    "price": 55000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "name": "Mainland - Ikorodu/Agege/Iyana Ipaja Environs",
+    "duration": "180 mins",
+    "price": 70000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "name": "Island - Ikoyi/Victoria Island Environs",
+    "duration": "180 mins",
+    "price": 65000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "name": "Island - Lekki 1/Ikate/Osapa Environs",
+    "duration": "210 mins",
+    "price": 75000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "name": "Island - Chevron/VGC Environs",
+    "duration": "240 mins",
+    "price": 80000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "name": "Mainland - Ketu/Yaba/Surulere/Ikeja/Gbagada Environs",
+    "duration": "180 mins",
+    "price": 55000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "name": "Mainland - Ikorodu/Agege/Iyana Ipaja Environs",
+    "duration": "180 mins",
+    "price": 70000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "name": "Island - Ikoyi/Victoria Island Environs",
+    "duration": "180 mins",
+    "price": 65000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "name": "Island - Lekki 1/Ikate/Osapa Environs",
+    "duration": "210 mins",
+    "price": 75000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "name": "Island - Chevron/VGC Environs",
+    "duration": "240 mins",
+    "price": 80000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish glam at your home or designated address for your registry, introduction or pre-wedding shoot.",
+      "A trial will make you come back!"
+    ],
+    "workingHours": ["WORKING HOURS: 6:00am-4:00pm {MON-SUN}"],
+    "extraCharges": [
+      "Appointments outside our working hours {before 6:00am and after 4:00pm attracts an EXTRA CHARGE of N10,000}",
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "Shoot covers 2-3 outfits. Touch-ups (wait-time) attracts an extra charge of N10,000 per outfit.",
+      "Delay attracts an extra charge of N5,000 per 30mins."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "name": "Church/Nikkah/White Wedding",
+    "duration": "180 mins",
+    "price": 150000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish Bridal glam on your big day.",
+      "We can't wait to be on your glam team!"
+    ],
+    "workingHours": [
+      "WORKING HOURS: Minimum Call Time is 6:00am. Appointment outside our call time attracts N10,000 extra."
+    ],
+    "extraCharges": [
+      "NO GELE included {Kindly contact us to refer you to a professional gele artist}",
+      "This covers 2 outfits only.",
+      "This covers Reception Touch up (3 hours count immediately after bridal glam).",
+      "This rate applies to only LAGOS brides. Travel fee applies for Destination/ Out of state weddings. Estimation is based on mileage (distance)."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "50% Deposit is required. Please endeavor to make balance payment before (advisable) or on the day.",
+      "Automatic cancellation of reservation where payment isn't received within an hour."
+    ]
+  },
+  {
+    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "name": "Traditional/Engagement",
+    "duration": "180 mins",
+    "price": 150000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish Bridal glam on your big day.",
+      "We can’t wait to be on your glam team!"
+    ],
+    "workingHours": [
+      "WORKING HOURS: Minimum Call Time is 6:00am. Appointment outside our call time attracts an EXTRA CHARGE of N10,000."
+    ],
+    "extraCharges": [
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "This covers 2 outfits only.",
+      "This covers Reception Touch up (3 hours count immediately after bridal glam)."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "50% Deposit is required. Please endeavor to make balance payment before (advisable) or on the day.",
+      "Automatic cancellation of reservation where payment isn't received within an hour.",
+      "This rate applies to only LAGOS brides. Travel fee applies for Destination/ Out of state weddings. Estimation is based on mileage (distance)."
+    ]
+  },
+  {
+    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "name": "Church/Nikkah & Engagement (2 in 1 Day)",
+    "duration": "240 mins",
+    "price": 200000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish Bridal glam on your big day.",
+      "We can’t wait to be on your glam team!"
+    ],
+    "workingHours": [
+      "WORKING HOURS: Minimum Call Time is 6:00am. Appointment outside our call time attracts an EXTRA CHARGE of N10,000."
+    ],
+    "extraCharges": [
+      "NO GELE included {GELE attracts N10,000 extra}",
+      "This covers 2-3 outfits only.",
+      "Switch of look",
+      "This covers Reception Touch up (4 hours count immediately after bridal glam)."
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "50% Deposit is required. Please endeavor to make balance payment before (advisable) or on the day.",
+      "Automatic cancellation of reservation where payment isn't received within an hour.",
+      "This rate applies to only LAGOS brides. Travel fee applies for Destination/ Out of state weddings. Estimation is based on mileage (distance)."
+    ]
+  },
+  {
+    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "name": "White & Engagement (2 Days)",
+    "duration": "180 mins",
+    "price": 300000,
+    "description": [
+      "Delivering seamless, long-lasting and velvet finish Bridal glam on your big day.",
+      "We can’t wait to be on your glam team!"
+    ],
+    "workingHours": [
+      "WORKING HOURS: Minimum Call Time is 6:00am. Appointment outside our call time attracts an EXTRA CHARGE of N10,000."
+    ],
+    "extraCharges": [
+      "NO GELE included {Kindly contact us to refer you to a professional gele artist}",
+      "This covers 2 outfits only on each day",
+      "This covers Reception Touch up on each day"
+    ],
+    "terms": [
+      "Please note that a reservation doesn't confirm booking. Payment validates booking.",
+      "50% Deposit is required. Please endeavor to make balance payment before (advisable) or on the day.",
+      "Automatic cancellation of reservation where payment isn't received within an hour.",
+      "This rate applies to only LAGOS brides. Travel fee applies for Destination/ Out of state weddings. Estimation is based on mileage (distance)."
+    ]
+  }
+]

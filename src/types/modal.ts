@@ -1,0 +1,46 @@
+export interface ServiceType {
+  id?: string;
+  name: string;
+  categoryId: string; 
+  duration: string;
+  price: number;
+  description?: string[];
+  workingHours?: string[];
+  extraCharges?: string[];
+  terms?: string[];
+}
+
+
+export interface CategoryType {
+  id?: string;
+  title: string;
+  services?: ServiceType[];
+}
+
+
+export interface UserType {
+  id?: string;
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  state: string;
+  city: string;
+  address: string;
+  zipCode: string;
+}
+
+export interface BookingType {
+  id?: string;
+  userId: string | null;
+  serviceId: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  state: string;
+  city: string;
+  address: string;
+  zipCode: string;
+  user?: UserType;
+  service?: ServiceType;
+}
