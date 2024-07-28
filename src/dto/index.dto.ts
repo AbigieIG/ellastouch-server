@@ -24,6 +24,14 @@ export interface ServiceDto {
   terms?: string[];
 }
 
+export interface AdminDto {
+  id?: string;
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  admin?: boolean
+}
 
 export interface BookingDto {
   id?: string;
@@ -31,11 +39,14 @@ export interface BookingDto {
   serviceId: string;
   fullName: string;
   email: string;
+  time: string;
+  date: string;
   phoneNumber: string;
   state: string;
   city: string;
   address: string;
   zipCode: string;
+  comment?: string;
   user?:  UserCreateDto;
   service: ServiceDto; 
 }

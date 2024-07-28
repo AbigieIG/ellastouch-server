@@ -1,7 +1,15 @@
-import { Table, Column, Model, DataType, PrimaryKey, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo,
+} from "sequelize-typescript";
 import { User } from "./user";
 import { Service } from "./service";
-import { BookingType } from '../types/modal';
+import { BookingType } from "../types/modal";
 
 @Table({
   timestamps: true,
@@ -14,6 +22,35 @@ export class Booking extends Model<BookingType> {
     allowNull: false,
   })
   id!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+    unique: true,
+    defaultValue: function() {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let uniqueId = "";
+      for (let i = 0; i < 6; i++) {
+        uniqueId += characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+      }
+      return uniqueId;
+    },
+  })
+  bookingId!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  time!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  date!: string;
 
   @ForeignKey(() => User)
   @Column({
@@ -64,6 +101,12 @@ export class Booking extends Model<BookingType> {
     allowNull: false,
   })
   address!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  comment!: string;
 
   @Column({
     type: DataType.STRING,

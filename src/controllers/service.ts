@@ -10,8 +10,15 @@ export class ServiceController {
       // if (!categoryExists) {
       //   return res.status(400).json({ message: "Invalid categoryId" });
       // }
+  
 
-      const service = await Service.bulkCreate(req.body);
+       // @ts-ignore
+      const isAdmin = req.user?.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
+
+      const service = await Service.create(req.body);
       return res.status(201).json(service);
     } catch (error) {
       console.error("Error creating service:", error);
@@ -52,6 +59,13 @@ export class ServiceController {
     res: Response
   ): Promise<Response> {
     try {
+
+       // @ts-ignore
+      const isAdmin = req.user?.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
+
       const { id } = req.params;
       const {
         name,
@@ -90,6 +104,13 @@ export class ServiceController {
     res: Response
   ): Promise<Response> {
     try {
+
+       // @ts-ignore
+      const isAdmin = req.user?.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
+      
       const { id } = req.params;
       const service = await Service.findByPk(id);
 

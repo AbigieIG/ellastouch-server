@@ -9,11 +9,12 @@ export class CategoryController {
     res: Response
   ): Promise<Response> {
     try {
-    //   const { title } = req.body;
-
-    //   if (!title) {
-    //     return res.status(400).json({ message: "Title is required" });
-    //   }
+      
+       // @ts-ignore
+      const isAdmin = req.user.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
 
       const category = await Category.bulkCreate(req.body);
 
@@ -76,12 +77,18 @@ export class CategoryController {
       const { id } = req.params;
       const { title } = req.body;
 
+       // @ts-ignore
+      const isAdmin = req.user?.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
+
       const category = await Category.findByPk(id);
 
       if (!category) {
         return res.status(404).json({ message: "Category not found" });
       }
-
+ 
       if (title) {
         category.title = title;
         await category.save();
@@ -103,7 +110,12 @@ export class CategoryController {
   static async delete(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
-
+       // @ts-ignore
+      const isAdmin = req.user?.admin;
+      if (!isAdmin) {
+        return res.status(403).json({ message: "Unauthorized" });
+      }
+      
       const category = await Category.findByPk(id);
 
       if (!category) {

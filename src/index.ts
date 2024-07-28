@@ -7,13 +7,20 @@ import { User } from "./models/user";
 import { Service } from "./models/service";
 import { Booking } from "./models/booking";
 import { Category } from "./models/category";
+import { Gallery } from "./models/gallery";
+import { Admin } from "./models/admin";
 import userRoutes from "./routes/user";
 import serviceRoutes from "./routes/service";
 import bookingRoutes from "./routes/booking";
 import categoryRoutes from "./routes/category";
+import authRoutes from "./routes/login";
+import adminRoutes from "./routes/admin";
+import galleryRoutes from "./routes/gallery";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import helmet from "helmet";
 import handleError from "./middleware/error";
+import cloudinary from "cloudinary";
 
 class Server {
   public app: Express;
@@ -29,7 +36,7 @@ class Server {
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      models: [User, Service, Booking, Category],
+      models: [User, Service, Booking, Category, Gallery, Admin],
     });
 
     this.config();
@@ -40,15 +47,45 @@ class Server {
 
   private config(): void {
     this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
-    this.app.use(cors());
+    this.app.use(helmet());
+    this.app.use(
+      cors({
+        credentials: true,
+        origin: "http://localhost:5173",
+        methods: "GET,POST,PUT,DELETE",
+      })
+    );
+
+    // Configure Cloudinary
+    cloudinary.v2.config({
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
+
+    // Check Cloudinary connection
+    this.testCloudinaryConnection();
+  }
+
+  private async testCloudinaryConnection() {
+    try {
+      const response = await cloudinary.v2.api.ping();
+      console.log("Cloudinary connection successful:", response);
+    } catch (error) {
+      console.error("Failed to connect to  Cloudinary:", error);
+    }
   }
 
   private routes(): void {
     this.app.use("/api/v1", userRoutes);
+    this.app.use("/api/v1", authRoutes);
     this.app.use("/api/v1", serviceRoutes);
     this.app.use("/api/v1", bookingRoutes);
     this.app.use("/api/v1", categoryRoutes);
+    this.app.use("/api/v1", galleryRoutes);
+    this.app.use("/api/v1", adminRoutes);
     this.app.use(handleError.NotFound);
   }
 

@@ -5,15 +5,42 @@ import { BookingDto } from "../dto/index.dto";
 // import { User } from "../models/user";
 
 export class BookingController {
-  static async create(req: Request<{},{}, BookingDto>, res: Response): Promise<Response> {
+  static async create(
+    req: Request<{}, {}, BookingDto>,
+    res: Response
+  ): Promise<Response> {
     try {
       const service = await Service.findByPk(req.body.serviceId);
       if (!service) {
         return res.status(404).json({ message: "Service not found" });
       }
-
+      const {
+        serviceId,
+        fullName,
+        email,
+        phoneNumber,
+        state,
+        city,
+        address,
+        zipCode,
+        time,
+        date,
+      } = req.body;
+      if (
+        !serviceId ||
+        !fullName ||
+        !email ||
+        !phoneNumber ||
+        !state ||
+        !city ||
+        !address ||
+        !zipCode ||
+        !time ||
+        !date
+      ) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
       const booking = await Booking.create(req.body);
-
       return res.status(201).json(booking);
     } catch (error) {
       console.error("Error creating booking:", error);
@@ -50,10 +77,22 @@ export class BookingController {
       }
     } catch (error) {
       console.error("Error finding booking:", error);
-      return res.status(500).json({ message: "Internal server error" });
+      return res.status(500).json({ message: error });
     }
   }
-
+static async findBookingById(req: Request, res: Response): Promise<Response> {
+  try {
+    const { id } = req.params;
+    const bookings = await Booking.findOne({ where: { bookingId: id}, include: [Service]});
+    if (!bookings) {
+      return res.status(404).json({ message: "Booking not found" });
+    }
+    return res.status(200).json(bookings);
+  } catch (error) {
+    console.error("Error finding bookings:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}
   static async update(
     req: Request<{ id: string }>,
     res: Response

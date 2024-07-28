@@ -16,6 +16,12 @@ export interface CategoryType {
   title: string;
   services?: ServiceType[];
 }
+export interface GalleryType {
+  id?: string;
+  public_id: string;
+  url: string;
+  category: string
+}
 
 
 export interface UserType {
@@ -28,12 +34,23 @@ export interface UserType {
   city: string;
   address: string;
   zipCode: string;
+  bookings?: BookingType[]
 }
-
+export interface AdminType {
+  id?: string;
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  admin?: boolean
+}
 export interface BookingType {
   id?: string;
   userId: string | null;
+  time: string;
+  date: string;
   serviceId: string;
+  bookingId?: string;
   fullName: string;
   email: string;
   phoneNumber: string;
@@ -41,6 +58,7 @@ export interface BookingType {
   city: string;
   address: string;
   zipCode: string;
+  comment?: string;
   user?: UserType;
   service?: ServiceType;
 }

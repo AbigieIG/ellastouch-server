@@ -1,11 +1,11 @@
 import { Table, Column, Model, DataType, PrimaryKey, Unique, HasMany } from 'sequelize-typescript';
-import { UserType } from '../types/modal';
-import { Booking } from './booking';
+import { AdminType } from '../types/modal';
+
 
 @Table({
   timestamps: true,
 })
-export class User extends Model<UserType> {
+export class Admin extends Model<AdminType> {
   @PrimaryKey
   @Column({
     type: DataType.UUID,
@@ -37,32 +37,12 @@ export class User extends Model<UserType> {
     type: DataType.STRING,
     allowNull: false,
   })
-  password!: string; // Added password field
+  password!: string; 
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.BOOLEAN,
+    defaultValue: true,
     allowNull: false,
   })
-  state!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  city!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  address!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  zipCode!: string;
-
-  @HasMany(() => Booking)
-  bookings!: Booking[];
+  admin!: string;
 }
