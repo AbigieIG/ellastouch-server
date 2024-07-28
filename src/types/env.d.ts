@@ -5,10 +5,10 @@ declare namespace NodeJS {
     DB_USER: string;
     DB_PASS: string;
     DB_NAME: string;
+    BASE_URL: string;
     JWT_SECRET: string;
     CLOUDINARY_CLOUD_NAME: string;
     CLOUDINARY_API_KEY: string;
-    CLOUDINARY_API_SECRET: string
+    CLOUDINARY_API_SECRET: string;
   }
 }
-

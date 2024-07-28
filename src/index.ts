@@ -21,6 +21,7 @@ import cors from "cors";
 import helmet from "helmet";
 import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
+import path from "path";
 
 class Server {
   public app: Express;
@@ -50,13 +51,23 @@ class Server {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
     this.app.use(helmet());
+    this.app.use((req, res, next) => {
+      res.setHeader(
+        'Content-Security-Policy',
+        "default-src 'self'; frame-src 'self' https://www.google.com; img-src 'self' data: https://res.cloudinary.com blob:; font-src 'self' data:;"
+      );
+      next();
+    });
     this.app.use(
       cors({
         credentials: true,
-        origin: "http://localhost:5173",
+        origin: process.env.BASE_URL,
         methods: "GET,POST,PUT,DELETE",
       })
     );
+
+    // Serve static files from the React app
+    this.app.use(express.static(path.join(__dirname, "../../ellastouch/dist")));
 
     // Configure Cloudinary
     cloudinary.v2.config({
@@ -86,7 +97,11 @@ class Server {
     this.app.use("/api/v1", categoryRoutes);
     this.app.use("/api/v1", galleryRoutes);
     this.app.use("/api/v1", adminRoutes);
-    this.app.use(handleError.NotFound);
+    this.app.use("/api/v1", handleError.NotFound);
+
+    this.app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../../ellastouch/dist", "index.html"));
+    });
   }
 
   private errorHandling(): void {
