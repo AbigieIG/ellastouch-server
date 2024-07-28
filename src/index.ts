@@ -53,7 +53,7 @@ class Server {
     this.app.use(helmet());
     this.app.use((req, res, next) => {
       res.setHeader(
-        'Content-Security-Policy',
+        "Content-Security-Policy",
         "default-src 'self'; frame-src 'self' https://www.google.com; img-src 'self' data: https://res.cloudinary.com blob:; font-src 'self' data:;"
       );
       next();
@@ -67,7 +67,7 @@ class Server {
     );
 
     // Serve static files from the React app
-    this.app.use(express.static(path.join(__dirname, "../../ellastouch/dist")));
+    this.app.use(express.static(path.join(__dirname, "public")));
 
     // Configure Cloudinary
     cloudinary.v2.config({
@@ -100,7 +100,7 @@ class Server {
     this.app.use("/api/v1", handleError.NotFound);
 
     this.app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../../ellastouch/dist", "index.html"));
+      res.sendFile(path.join(__dirname, "public", "index.html"));
     });
   }
 
