@@ -90,8 +90,8 @@ export class UserController {
     res: Response
   ): Promise<Response> {
     try {
-      // @ts-ignore
-      const { id } = req.user;
+      
+      const  id  = req.user?.id;
       const {
         fullName,
         phoneNumber,
@@ -134,8 +134,7 @@ export class UserController {
   ): Promise<Response> {
     try {
 
-       // @ts-ignore
-       const { id } = req.user;
+      const  id  = req.user?.id;
        const user = await User.findByPk(id);
 
       if (user) {
@@ -153,8 +152,8 @@ export class UserController {
   static async data(req: Request, res: Response): Promise<Response> {
     try {
 
-      // @ts-ignore
-      const userId =  req.user.id;
+    
+      const userId =  req.user?.id;
 
       const userData = await User.findByPk(userId, {
         attributes: ["id", "fullName", "phoneNumber", "email", "state", "city", "address", "zipCode"],

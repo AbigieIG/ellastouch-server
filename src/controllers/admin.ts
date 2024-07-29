@@ -9,7 +9,7 @@ export class AdminController {
 
     try {
 
-        // @ts-ignore
+        
         const isAdmin = req.user?.admin;
         if (!isAdmin) {
           return res.status(403).json({ message: "Unauthorized" });

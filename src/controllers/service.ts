@@ -5,14 +5,7 @@ import { Category } from "../models/category";
 export class ServiceController {
   static async create(req: Request, res: Response): Promise<Response> {
     try {
-      // const { categoryId, ...serviceData } = req.body;
-      // const categoryExists = await Category.findByPk(categoryId);
-      // if (!categoryExists) {
-      //   return res.status(400).json({ message: "Invalid categoryId" });
-      // }
-  
 
-       // @ts-ignore
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
@@ -60,7 +53,6 @@ export class ServiceController {
   ): Promise<Response> {
     try {
 
-       // @ts-ignore
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
@@ -105,7 +97,6 @@ export class ServiceController {
   ): Promise<Response> {
     try {
 
-       // @ts-ignore
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });

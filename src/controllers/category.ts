@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { Category } from "../models/category";
 import { Service } from "../models/service";
-// import { CategoryDto } from "../dto/index.dto";
 
 export class CategoryController {
   static async create(
@@ -10,8 +9,8 @@ export class CategoryController {
   ): Promise<Response> {
     try {
       
-       // @ts-ignore
-      const isAdmin = req.user.admin;
+    
+      const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
@@ -77,7 +76,7 @@ export class CategoryController {
       const { id } = req.params;
       const { title } = req.body;
 
-       // @ts-ignore
+      
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
@@ -106,11 +105,11 @@ export class CategoryController {
     }
   }
 
-  // Delete a category by ID
+ 
   static async delete(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
-       // @ts-ignore
+  
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });

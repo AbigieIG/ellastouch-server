@@ -1,18 +1,24 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// Define a type for the decoded token
+// Define the DecodedToken interface
 interface DecodedToken extends JwtPayload {
   id?: string;
-  fullName?: string;
-  phoneNumber?: string;
-  email?: string;
-  password?: string;
-  state?: string;
-  city?: string;
-  address?: string;
-  zipCode?: string;
-} 
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  admin?: boolean;
+}
+
+// Extend the Request interface in this file
+declare global {
+  namespace Express {
+    interface Request {
+      user?: DecodedToken;
+    }
+  }
+}
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.cookies['token'];
@@ -21,12 +27,17 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     return res.status(403).json({ message: "Unauthorized" });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET! as string, (err: jwt.VerifyErrors | null, decoded: jwt.JwtPayload | string | undefined) => {
+  jwt.verify(token, process.env.JWT_SECRET! as string, (err: jwt.VerifyErrors | null, decoded: JwtPayload | string | undefined) => {
     if (err) {
       return res.status(500).json({ message: 'Failed to authenticate token' });
     }
-// @ts-ignore
-    req.user = decoded 
+
+    if (typeof decoded === 'object' && decoded !== null) {
+      req.user = decoded as DecodedToken;
+    } else {
+      return res.status(500).json({ message: 'Failed to authenticate token' });
+    }
+    
     next();
   });
 };

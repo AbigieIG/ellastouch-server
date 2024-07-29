@@ -28,7 +28,7 @@ export class GalleryController {
     req: Request,
     res: Response
   ): Promise<void | Response> {
-    // @ts-ignore
+   
     const isAdmin = req.user?.admin;
     if (!isAdmin) {
       return res.status(403).json({ message: "Unauthorized" });
@@ -84,7 +84,6 @@ export class GalleryController {
 
   static async update(req: Request, res: Response): Promise<void | Response> {
     
-    // @ts-ignore
     const isAdmin = req.user?.admin;
     if (!isAdmin) {
       return res.status(403).json({ message: "Unauthorized" });
@@ -123,7 +122,7 @@ export class GalleryController {
 
   static async delete(req: Request, res: Response): Promise<void | Response> {
     try {
-      // @ts-ignore
+     
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
