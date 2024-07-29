@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #f8f8f8;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .content {
+      padding: 20px;
+      color: #333;
+    }
+    .content p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .footer {
+      background-color: #f4f4f4;
+      padding: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 16px;
+      margin: 20px 0;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Booking Confirmation</h1>
+    </div>
+    <div class="content">
+      <p>Dear {{fullName}},</p>
+      <p>Your booking (ID: <strong>{{bookingId}}</strong>) has been confirmed for <strong>{{serviceName}}</strong> on <strong>{{date}}</strong> at <strong>{{time}}</strong>.</p>
+      <p>Thank you,<br>Ellas Touch</p>
+    </div>
+    <div class="footer">
+      <p>If you have any questions, feel free to contact us.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import { Booking } from "../models/booking";
 import { Service } from "../models/service";
 import { BookingDto } from "../dto/index.dto";
+import { sendEmail } from "../middleware/nodemailer";
+import { renderTemplate } from "../middleware/renderTemplate";
+
 // import { User } from "../models/user";
 
 export class BookingController {
@@ -40,7 +43,42 @@ export class BookingController {
       ) {
         return res.status(400).json({ message: "Missing required fields" });
       }
+
       const booking = await Booking.create(req.body);
+
+      const bookingConfirmationHtml = renderTemplate(
+        "booking-confirmation.html",
+        {
+          fullName,
+          bookingId: booking.bookingId,
+          serviceName: service.name,
+          date,
+          time,
+        }
+      );
+
+      await sendEmail(email, "Booking Confirmation", bookingConfirmationHtml);
+
+      const newBookingNotificationHtml = renderTemplate(
+        "new-booking-notification.html",
+        {
+          bookingId: booking.bookingId,
+          fullName,
+          serviceName: service.name,
+          date,
+          time,
+          email,
+          phoneNumber,
+        }
+      );
+
+      const adminEmail = process.env.ADMIN_EMAIL;
+      await sendEmail(
+        adminEmail,
+        "New Booking Notification",
+        newBookingNotificationHtml
+      );
+
       return res.status(201).json(booking);
     } catch (error) {
       console.error("Error creating booking:", error);
@@ -80,19 +118,22 @@ export class BookingController {
       return res.status(500).json({ message: error });
     }
   }
-static async findBookingById(req: Request, res: Response): Promise<Response> {
-  try {
-    const { id } = req.params;
-    const bookings = await Booking.findOne({ where: { bookingId: id}, include: [Service]});
-    if (!bookings) {
-      return res.status(404).json({ message: "Booking not found" });
+  static async findBookingById(req: Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      const bookings = await Booking.findOne({
+        where: { bookingId: id },
+        include: [Service],
+      });
+      if (!bookings) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      return res.status(200).json(bookings);
+    } catch (error) {
+      console.error("Error finding bookings:", error);
+      return res.status(500).json({ message: "Internal server error" });
     }
-    return res.status(200).json(bookings);
-  } catch (error) {
-    console.error("Error finding bookings:", error);
-    return res.status(500).json({ message: "Internal server error" });
   }
-}
   static async update(
     req: Request<{ id: string }>,
     res: Response

@@ -7,6 +7,10 @@ declare namespace NodeJS {
     DB_NAME: string;
     BASE_URL: string;
     JWT_SECRET: string;
+    EMAIL_SERVICE: string;
+    EMAIL_USER: string;
+    EMAIL_PASS: string;
+    ADMIN_EMAIL: string;
     CLOUDINARY_CLOUD_NAME: string;
     CLOUDINARY_API_KEY: string;
     CLOUDINARY_API_SECRET: string;

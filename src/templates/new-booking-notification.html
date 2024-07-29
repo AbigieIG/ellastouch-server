@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #eaeaea;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #f8f8f8;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #333;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #555;
+    }
+    .content ul {
+      padding-left: 5px;
+      margin: 0;
+      list-style-type: none;
+    }
+    .content li {
+      font-size: 16px;
+      color: #555;
+    }
+    .footer {
+      background-color: #f8f8f8;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #ddd;
+    }
+    .button {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 16px;
+      margin: 20px 0;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>New Booking Notification</h1>
+    </div>
+    <div class="content">
+      <p>A new booking (ID: <strong>{{bookingId}}</strong>) has been made by <strong>{{fullName}}</strong> for <strong>{{serviceName}}</strong> on <strong>{{date}}</strong> at <strong>{{time}}</strong>.</p>
+      <p>Contact details:</p>
+      <ul>
+        <li>Email: <strong>{{email}}</strong></li>
+        <li>Phone: +<strong>{{phoneNumber}}</strong></li>
+      </ul>
+    </div>
+    <div class="footer">
+      <p>Best regards,<br>Ellas Touch Team</p>
+    </div>
+  </div>
+</body>
+</html>

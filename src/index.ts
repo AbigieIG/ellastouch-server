@@ -23,6 +23,7 @@ import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
 import path from "path";
 
+
 class Server {
   public app: Express;
   private port: string | number;
@@ -119,6 +120,7 @@ class Server {
       this.app.listen(this.port, () => {
         console.log(`Server is running on http://localhost:${this.port}`);
       });
+
     } catch (error) {
       console.error("Unable to connect to the database:", error);
     }
