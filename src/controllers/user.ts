@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import { User } from "../models/user";
 import { UserCreateDto } from "../dto/index.dto";
 import bcrypt from "bcrypt";
-import { Booking } from "../models/booking";
-import { Service } from "../models/service";
 
 
 export class UserController {
@@ -27,14 +25,14 @@ export class UserController {
         return res.status(400).json({ message: "Missing required fields" });
       }
 
-      const existingUser = await User.findOne({ where: { email } });
+      const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(409).json({ message: "User already exists" });
       }
-      
+
       const hashedPassword = await bcrypt.hash(password, 10);
- 
-      const user = await User.create({
+
+      const user = new User({
         fullName,
         phoneNumber,
         email,
@@ -44,7 +42,9 @@ export class UserController {
         address,
         zipCode,
       });
-    
+
+      await user.save();
+
       return res.status(201).json(user);
     } catch (error) {
       console.error("Error creating user:", error);
@@ -54,9 +54,7 @@ export class UserController {
 
   static async findAll(req: Request, res: Response): Promise<Response> {
     try {
-      const users = await User.findAll({
-        attributes: ["id", "fullName", "phoneNumber", "email", "state", "city", "address", "zipCode", "createdAt", "updatedAt"],
-      });
+      const users = await User.find({}, 'id fullName phoneNumber email state city address zipCode createdAt updatedAt');
       return res.status(200).json(users);
     } catch (error) {
       console.error("Error finding users:", error);
@@ -70,9 +68,14 @@ export class UserController {
   ): Promise<Response> {
     try {
       const { id } = req.params;
-      const user = await User.findByPk(id, {
-        attributes: ["id", "fullName", "phoneNumber", "email", "state", "city", "address", "zipCode"],
-        include: [Booking]});
+      const user = await User.findById(id)
+        .populate({
+          path: 'bookings',
+          populate: {
+            path: 'service',
+          },
+        })
+        .select('id fullName phoneNumber email state city address zipCode');
 
       if (user) {
         return res.status(200).json(user);
@@ -86,12 +89,11 @@ export class UserController {
   }
 
   static async update(
-    req: Request<{ id: string }, {}>,
+    req: Request<{ id: string }, {}, UserCreateDto>,
     res: Response
   ): Promise<Response> {
     try {
-      
-      const  id  = req.user?.id;
+      const id = req.user?.id;
       const {
         fullName,
         phoneNumber,
@@ -103,7 +105,7 @@ export class UserController {
         zipCode,
       } = req.body;
 
-      const user = await User.findByPk(id);
+      const user = await User.findById(id);
 
       if (user) {
         user.fullName = fullName ?? user.fullName;
@@ -133,13 +135,11 @@ export class UserController {
     res: Response
   ): Promise<Response> {
     try {
+      const id = req.params.id;
+      const result = await User.deleteOne({ _id: id });
 
-      const  id  = req.user?.id;
-       const user = await User.findByPk(id);
-
-      if (user) {
-        await user.destroy();
-        return res.status(204).send("deleted successfully"); // No content
+      if (result.deletedCount > 0) {
+        return res.status(204).send(); // No content
       } else {
         return res.status(404).json({ message: "User not found" });
       }
@@ -148,22 +148,20 @@ export class UserController {
       return res.status(500).json({ message: "Internal server error" });
     }
   }
-   
+
   static async data(req: Request, res: Response): Promise<Response> {
     try {
+      const userId = req.user?.id;
 
-    
-      const userId =  req.user?.id;
+      const userData = await User.findById(userId)
+        .populate({
+          path: 'bookings',
+          populate: {
+            path: 'service',
+          },
+        })
+        .select('id fullName phoneNumber email state city address zipCode');
 
-      const userData = await User.findByPk(userId, {
-        attributes: ["id", "fullName", "phoneNumber", "email", "state", "city", "address", "zipCode"],
-        include: [{
-          model: Booking,
-          include: [{
-            model: Service
-          }]
-        }]
-      });
       if (!userData) {
         return res.status(404).json({ message: "User not found" });
       }

@@ -1,28 +1,32 @@
-// import { Table, Column, Model, DataType, PrimaryKey, BelongsTo, ForeignKey } from 'sequelize-typescript';
-import { CategoryType } from '../types/modal';
-import { Service } from "./service";
+import mongoose, { Schema, Document } from 'mongoose';
 
-import { Table, Column, Model, DataType, PrimaryKey,  HasMany } from 'sequelize-typescript';
-
-@Table({
-  timestamps: true,
-})
-export class Category extends Model<CategoryType> {
-  @PrimaryKey
-  @Column({
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4,
-    allowNull: false,
-  })
-  id!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  title!: string;
-
-  @HasMany(() => Service)
-  services!: Service[];
+export interface ICategory extends Document {
+  id: string;
+  title: string;
+  services: mongoose.Types.ObjectId[];
 }
 
+const CategorySchema: Schema<ICategory> = new Schema(
+  {
+    id: {
+      type: String,
+      default: () => new mongoose.Types.ObjectId().toString(),
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    services: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Service',
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const Category = mongoose.model<ICategory>('Category', CategorySchema);

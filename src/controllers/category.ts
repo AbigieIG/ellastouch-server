@@ -1,28 +1,23 @@
 import { Request, Response } from "express";
-import { Category } from "../models/category";
-import { Service } from "../models/service";
+import { Category } from "../models/category"; // Ensure this is your Mongoose model
+import { Service } from "../models/service"; // Ensure this is your Mongoose model
 
 export class CategoryController {
-  static async create(
-    req: Request,
-    res: Response
-  ): Promise<Response> {
+  static async create(req: Request, res: Response): Promise<Response> {
     try {
-      
-    
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
 
-      const category = await Category.bulkCreate(req.body);
+      const categories = await Category.insertMany(req.body);
 
       return res.status(201).json({
-        message: "Category created successfully",
-        data: category,
+        message: "Categories created successfully",
+        data: categories,
       });
     } catch (error) {
-      console.error("Error creating category:", error);
+      console.error("Error creating categories:", error);
       return res.status(500).json({
         message: "Internal server error",
         error: error,
@@ -30,12 +25,9 @@ export class CategoryController {
     }
   }
 
-
   static async getAll(req: Request, res: Response): Promise<Response> {
     try {
-      const categories = await Category.findAll({
-        include: [Service]
-      });
+      const categories = await Category.find().populate("services").exec();
 
       return res.status(200).json(categories);
     } catch (error) {
@@ -47,12 +39,11 @@ export class CategoryController {
     }
   }
 
-  // Get a single category by ID
   static async getById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
 
-      const category = await Category.findByPk(id);
+      const category = await Category.findById(id).populate("services").exec();
 
       if (!category) {
         return res.status(404).json({ message: "Category not found" });
@@ -70,24 +61,22 @@ export class CategoryController {
     }
   }
 
-  // Update a category by ID
   static async update(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
       const { title } = req.body;
 
-      
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
 
-      const category = await Category.findByPk(id);
+      const category = await Category.findById(id).exec();
 
       if (!category) {
         return res.status(404).json({ message: "Category not found" });
       }
- 
+
       if (title) {
         category.title = title;
         await category.save();
@@ -100,28 +89,27 @@ export class CategoryController {
     } catch (error) {
       return res.status(500).json({
         message: "Internal server error",
-        error: error,
+        error: error
       });
     }
   }
 
- 
   static async delete(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
-  
+
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
-      
-      const category = await Category.findByPk(id);
+
+      const category = await Category.findById(id).exec();
 
       if (!category) {
         return res.status(404).json({ message: "Category not found" });
       }
 
-      await category.destroy();
+      await category.deleteOne();
 
       return res.status(200).json({
         message: "Category deleted successfully",

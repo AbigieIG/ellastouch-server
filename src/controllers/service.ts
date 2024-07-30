@@ -1,26 +1,28 @@
 import { Request, Response } from "express";
-import { Service } from "../models/service";
-import { Category } from "../models/category";
+import { IService, Service } from "../models/service";
+
+
 
 export class ServiceController {
   static async create(req: Request, res: Response): Promise<Response> {
     try {
-
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
 
-      const service = await Service.create(req.body);
+      const service = new Service(req.body);
+      await service.save();
       return res.status(201).json(service);
     } catch (error) {
       console.error("Error creating service:", error);
       return res.status(500).json({ message: "Internal server error" });
     }
   }
+
   static async findAll(req: Request, res: Response): Promise<Response> {
     try {
-      const services = await Service.findAll();
+      const services = await Service.find();
       return res.status(200).json(services);
     } catch (error) {
       console.error("Error finding services:", error);
@@ -34,7 +36,7 @@ export class ServiceController {
   ): Promise<Response> {
     try {
       const { id } = req.params;
-      const service = await Service.findByPk(id);
+      const service = await Service.findById(id);
 
       if (service) {
         return res.status(200).json(service);
@@ -48,11 +50,10 @@ export class ServiceController {
   }
 
   static async update(
-    req: Request<{ id: string }, {}, Partial<Service>>,
+    req: Request<{ id: string }, {}, Partial<IService>>,
     res: Response
   ): Promise<Response> {
     try {
-
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
@@ -69,7 +70,7 @@ export class ServiceController {
         terms,
       } = req.body;
 
-      const service = await Service.findByPk(id);
+      const service = await Service.findById(id);
 
       if (service) {
         service.name = name ?? service.name;
@@ -96,18 +97,16 @@ export class ServiceController {
     res: Response
   ): Promise<Response> {
     try {
-
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
-      
-      const { id } = req.params;
-      const service = await Service.findByPk(id);
 
-      if (service) {
-        await service.destroy();
-        return res.status(204).send();
+      const { id } = req.params;
+      const result = await Service.deleteOne({ _id: id });
+
+      if (result.deletedCount > 0) {
+        return res.status(204).send(); // No content
       } else {
         return res.status(404).json({ message: "Service not found" });
       }

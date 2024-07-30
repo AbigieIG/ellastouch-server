@@ -2,13 +2,7 @@ import "reflect-metadata";
 import dotenv from "dotenv";
 dotenv.config();
 import express, { Express } from "express";
-import { Sequelize } from "sequelize-typescript";
-import { User } from "./models/user";
-import { Service } from "./models/service";
-import { Booking } from "./models/booking";
-import { Category } from "./models/category";
-import { Gallery } from "./models/gallery";
-import { Admin } from "./models/admin";
+import mongoose from "mongoose";
 import userRoutes from "./routes/user";
 import serviceRoutes from "./routes/service";
 import bookingRoutes from "./routes/booking";
@@ -23,23 +17,13 @@ import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
 import path from "path";
 
-
 class Server {
   public app: Express;
   private port: string | number;
-  private sequelize: Sequelize;
 
   constructor() {
     this.app = express();
     this.port = process.env.PORT || 3000;
-    this.sequelize = new Sequelize({
-      dialect: "mysql",
-      host: process.env.DB_HOST,
-      username: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_NAME,
-      models: [User, Service, Booking, Category, Gallery, Admin],
-    });
 
     this.config();
     this.routes();
@@ -67,18 +51,37 @@ class Server {
       })
     );
 
-    // Serve static files from the React app
     this.app.use(express.static(path.join(__dirname, "public")));
 
-    // Configure Cloudinary
     cloudinary.v2.config({
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
       api_key: process.env.CLOUDINARY_API_KEY,
       api_secret: process.env.CLOUDINARY_API_SECRET,
     });
 
-    // Check Cloudinary connection
+
     this.testCloudinaryConnection();
+
+    this.connectDB();
+  }
+
+  private async connectDB(): Promise<void> {
+    try {
+      const mongoURI = process.env.MONGO_URI;
+      if (!mongoURI) {
+        console.error(
+          "MongoDB URI is not defined. Please check your environment variables."
+        );
+        process.exit(1);
+      }
+
+      await mongoose.connect(mongoURI, {});
+
+      console.log("MongoDB connection has been established successfully.");
+    } catch (error) {
+      console.error("Unable to connect to MongoDB:", error);
+      process.exit(1); // Exit the process with failure
+    }
   }
 
   private async testCloudinaryConnection() {
@@ -86,7 +89,7 @@ class Server {
       const response = await cloudinary.v2.api.ping();
       console.log("Cloudinary connection successful:", response);
     } catch (error) {
-      console.error("Failed to connect to  Cloudinary:", error);
+      console.error("Failed to connect to Cloudinary:", error);
     }
   }
 
@@ -111,18 +114,11 @@ class Server {
 
   private async start(): Promise<void> {
     try {
-      await this.sequelize.authenticate();
-      console.log("Database connection has been established successfully.");
-
-      await this.sequelize.sync({ alter: true });
-      console.log("Database models have been synchronized.");
-
       this.app.listen(this.port, () => {
         console.log(`Server is running on http://localhost:${this.port}`);
       });
-
     } catch (error) {
-      console.error("Unable to connect to the database:", error);
+      console.error("Error starting the server:", error);
     }
   }
 }

@@ -2,8 +2,11 @@ import { Request, Response } from "express";
 import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import cloudinary from "cloudinary";
-import { Gallery } from "../models/gallery";
+import { Gallery } from "../models/gallery"; // Update import according to Mongoose model location
 import { v4 as uuidv4 } from "uuid";
+
+// Initialize Cloudinary
+
 
 export class GalleryController {
   private static storage = new CloudinaryStorage({
@@ -28,7 +31,6 @@ export class GalleryController {
     req: Request,
     res: Response
   ): Promise<void | Response> {
-   
     const isAdmin = req.user?.admin;
     if (!isAdmin) {
       return res.status(403).json({ message: "Unauthorized" });
@@ -45,12 +47,13 @@ export class GalleryController {
       }
 
       try {
-        const newGalleryEntry = await Gallery.create({
+        const newGalleryEntry = new Gallery({
           public_id: req.file.filename,
           url: req.file.path,
           category: req.body.category,
         });
 
+        await newGalleryEntry.save();
         res.status(201).send(newGalleryEntry);
       } catch (error) {
         res.status(500).json({ error: error });
@@ -60,9 +63,7 @@ export class GalleryController {
 
   static async findAll(req: Request, res: Response): Promise<void> {
     try {
-      const galleries = await Gallery.findAll({
-        order: [["createdAt", "DESC"]],
-      });
+      const galleries = await Gallery.find().sort({ createdAt: -1 }).exec();
       res.status(200).json(galleries);
     } catch (error) {
       res.status(500).json({ error: error });
@@ -71,19 +72,18 @@ export class GalleryController {
 
   static async findById(req: Request, res: Response): Promise<void> {
     try {
-      const gallery = await Gallery.findByPk(req.params.id);
+      const gallery = await Gallery.findById(req.params.id).exec();
       if (gallery) {
         res.status(200).json(gallery);
       } else {
         res.status(404).json({ message: "Gallery entry not found" });
       }
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error});
     }
   }
 
   static async update(req: Request, res: Response): Promise<void | Response> {
-    
     const isAdmin = req.user?.admin;
     if (!isAdmin) {
       return res.status(403).json({ message: "Unauthorized" });
@@ -97,7 +97,7 @@ export class GalleryController {
       }
 
       try {
-        const gallery = await Gallery.findByPk(req.params.id);
+        const gallery = await Gallery.findById(req.params.id).exec();
         if (!gallery) {
           return res.status(404).json({ message: "Gallery entry not found" });
         }
@@ -107,36 +107,34 @@ export class GalleryController {
 
           gallery.public_id = req.file.filename;
           gallery.url = req.file.path;
-          gallery.category = req.body.category;
-        } else {
-          gallery.category = req.body.category;
         }
+        gallery.category = req.body.category || gallery.category;
 
         await gallery.save();
         res.status(200).json(gallery);
       } catch (error) {
-        res.status(500).json({ error: error });
+        res.status(500).json({ error: error});
       }
     });
   }
 
   static async delete(req: Request, res: Response): Promise<void | Response> {
     try {
-     
       const isAdmin = req.user?.admin;
       if (!isAdmin) {
         return res.status(403).json({ message: "Unauthorized" });
       }
-      const gallery = await Gallery.findByPk(req.params.id);
+      
+      const gallery = await Gallery.findById(req.params.id).exec();
       if (!gallery) {
         return res.status(404).json({ message: "Gallery entry not found" });
       }
 
       await cloudinary.v2.uploader.destroy(gallery.public_id);
 
-      await gallery.destroy();
+      await gallery.deleteOne();
 
-      return res.status(204).json({ message: "deleted successfully" });
+      return res.status(204).json({ message: "Deleted successfully" });
     } catch (error) {
       res.status(500).json({ error: error });
     }

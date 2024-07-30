@@ -1,48 +1,47 @@
-import { Table, Column, Model, DataType, PrimaryKey, Unique, HasMany } from 'sequelize-typescript';
-import { AdminType } from '../types/modal';
+import mongoose, { Schema, Document } from 'mongoose';
 
-
-@Table({
-  timestamps: true,
-})
-export class Admin extends Model<AdminType> {
-  @PrimaryKey
-  @Column({
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4,
-    allowNull: false,
-  })
-  id!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  fullName!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  phoneNumber!: string;
-
-  @Unique
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  email!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  password!: string; 
-
-  @Column({
-    type: DataType.BOOLEAN,
-    defaultValue: true,
-    allowNull: false,
-  })
-  admin!: string;
+export interface IAdmin extends Document {
+  id: string;
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  admin: boolean;
 }
+
+const AdminSchema: Schema<IAdmin> = new Schema(
+  {
+    id: {
+      type: String,
+      default: () => new mongoose.Types.ObjectId().toString(), 
+      required: true,
+    },
+    fullName: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    admin: {
+      type: Boolean,
+      default: true,
+      required: true,
+    },
+  },
+  {
+    timestamps: true, 
+  }
+);
+
+export const Admin = mongoose.model<IAdmin>('Admin', AdminSchema);
