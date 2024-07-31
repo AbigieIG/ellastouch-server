@@ -1,6 +1,6 @@
 [
   {
-    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "categoryId": "66aa390f86394a902bb77770",
     "name": "Studio Glam Only",
     "duration": "60 mins",
     "price": 20000,
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "categoryId": "66aa390f86394a902bb77770",
     "name": "Studio Glam with Gele",
     "duration": "75 mins",
     "price": 25000,
@@ -40,7 +40,7 @@
     ]
   },
   {
-    "categoryId": "4ce85809-6011-413b-aa5d-179165df5c5c",
+    "categoryId": "66aa390f86394a902bb77770",
     "name": "Professional Photoshoot and Makeup Session",
     "duration": "180 mins",
     "price": 55000,
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Ketu/Ojota/Maryland/Anthony Environs",
     "duration": "60 mins",
     "price": 30000,
@@ -80,7 +80,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Yaba/Palmgroove/Bariga/Shomolu/Gbagada Environs",
     "duration": "60 mins",
     "price": 30000,
@@ -100,7 +100,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Ikeja/Ogba/Berger Environs",
     "duration": "90 mins",
     "price": 35000,
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Oshodi/Mushin Environs",
     "duration": "90 mins",
     "price": 35000,
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Surulere/Ebute-Metta Environs",
     "duration": "90 mins",
     "price": 35000,
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Agege/Ipaja/Egbeda Environs",
     "duration": "90 mins",
     "price": 40000,
@@ -180,7 +180,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Ikorodu Environs",
     "duration": "90 mins",
     "price": 50000,
@@ -200,7 +200,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77771",
     "name": "Abule Egba-Alagbado Environs",
     "duration": "90 mins",
     "price": 45000,
@@ -220,7 +220,7 @@
     ]
   },
   {
-    "categoryId": "7631a4d7-676d-4848-917f-dcba092ecc73",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "Victoria Island/Ikoyi Environs",
     "duration": "90 mins",
     "price": 40000,
@@ -240,7 +240,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "Banana Island/Lekki Phase 1/Ikate Environs",
     "duration": "90 mins",
     "price": 45000,
@@ -261,7 +261,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "Jakande/Osapa/Ikota/Chevron Environs",
     "duration": "90 mins",
     "price": 55000,
@@ -282,7 +282,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "VGC Environs",
     "duration": "90 mins",
     "price": 60000,
@@ -303,7 +303,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "Ajah Environs",
     "duration": "90 mins",
     "price": 65000,
@@ -324,7 +324,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77772",
     "name": "Epe Environs",
     "duration": "90 mins",
     "price": 75000,
@@ -345,7 +345,7 @@
     ]
   },
   {
-    "categoryId": "30fe934e-2ed3-4bcb-a143-694048103b82",
+    "categoryId": "66aa390f86394a902bb77773",
     "name": "Mainland - Ketu/Yaba/Surulere/Ikeja/Gbagada Environs",
     "duration": "180 mins",
     "price": 55000,
@@ -366,7 +366,7 @@
     ]
   },
   {
-    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "categoryId": "66aa390f86394a902bb77773",
     "name": "Mainland - Ikorodu/Agege/Iyana Ipaja Environs",
     "duration": "180 mins",
     "price": 70000,
@@ -387,7 +387,7 @@
     ]
   },
   {
-    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "categoryId": "66aa390f86394a902bb77773",
     "name": "Island - Ikoyi/Victoria Island Environs",
     "duration": "180 mins",
     "price": 65000,
@@ -408,7 +408,7 @@
     ]
   },
   {
-    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "categoryId": "66aa390f86394a902bb77773",
     "name": "Island - Lekki 1/Ikate/Osapa Environs",
     "duration": "210 mins",
     "price": 75000,
@@ -429,7 +429,7 @@
     ]
   },
   {
-    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "categoryId": "66aa390f86394a902bb77773",
     "name": "Island - Chevron/VGC Environs",
     "duration": "240 mins",
     "price": 80000,
@@ -450,7 +450,7 @@
     ]
   },
   {
-    "categoryId": "d3222485-13f4-4e7f-bc61-3076b2654da8",
+    "categoryId": "66aa390f86394a902bb77774",
     "name": "Mainland - Ketu/Yaba/Surulere/Ikeja/Gbagada Environs",
     "duration": "180 mins",
     "price": 55000,
@@ -471,7 +471,7 @@
     ]
   },
   {
-    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "categoryId": "66aa390f86394a902bb77774",
     "name": "Mainland - Ikorodu/Agege/Iyana Ipaja Environs",
     "duration": "180 mins",
     "price": 70000,
@@ -492,7 +492,7 @@
     ]
   },
   {
-    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "categoryId": "66aa390f86394a902bb77774",
     "name": "Island - Ikoyi/Victoria Island Environs",
     "duration": "180 mins",
     "price": 65000,
@@ -513,7 +513,7 @@
     ]
   },
   {
-    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "categoryId": "66aa390f86394a902bb77774",
     "name": "Island - Lekki 1/Ikate/Osapa Environs",
     "duration": "210 mins",
     "price": 75000,
@@ -534,7 +534,7 @@
     ]
   },
   {
-    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "categoryId": "66aa390f86394a902bb77774",
     "name": "Island - Chevron/VGC Environs",
     "duration": "240 mins",
     "price": 80000,
@@ -555,7 +555,7 @@
     ]
   },
   {
-    "categoryId": "ea02346e-b2aa-48c6-b8ad-81837596bfa2",
+    "categoryId": "66aa390f86394a902bb77775",
     "name": "Church/Nikkah/White Wedding",
     "duration": "180 mins",
     "price": 150000,
@@ -579,7 +579,7 @@
     ]
   },
   {
-    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "categoryId": "66aa390f86394a902bb77775",
     "name": "Traditional/Engagement",
     "duration": "180 mins",
     "price": 150000,
@@ -603,7 +603,7 @@
     ]
   },
   {
-    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "categoryId": "66aa390f86394a902bb77775",
     "name": "Church/Nikkah & Engagement (2 in 1 Day)",
     "duration": "240 mins",
     "price": 200000,
@@ -628,7 +628,7 @@
     ]
   },
   {
-    "categoryId": "5ddb8a55-16dd-4f8f-8c82-bb6ce1ed4c61",
+    "categoryId": "66aa390f86394a902bb77775",
     "name": "White & Engagement (2 Days)",
     "duration": "180 mins",
     "price": 300000,

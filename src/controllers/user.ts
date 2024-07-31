@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import { User } from "../models/user";
+import { User } from "../schemas/user";
 import { UserCreateDto } from "../dto/index.dto";
 import bcrypt from "bcrypt";
 
-
 export class UserController {
   static async create(
-    req: Request<{}, {}, UserCreateDto>,
+    req: Request,
     res: Response
   ): Promise<Response> {
     try {
@@ -54,7 +53,16 @@ export class UserController {
 
   static async findAll(req: Request, res: Response): Promise<Response> {
     try {
-      const users = await User.find({}, 'id fullName phoneNumber email state city address zipCode createdAt updatedAt');
+      const users = await User.find(
+        {},
+        "id fullName phoneNumber email state city address zipCode createdAt updatedAt"
+      )
+      .populate({
+        path: "bookings",
+        populate: {
+          path: "serviceId",
+        },
+      });
       return res.status(200).json(users);
     } catch (error) {
       console.error("Error finding users:", error);
@@ -70,12 +78,12 @@ export class UserController {
       const { id } = req.params;
       const user = await User.findById(id)
         .populate({
-          path: 'bookings',
+          path: "bookings",
           populate: {
-            path: 'service',
+            path: "serviceId",
           },
         })
-        .select('id fullName phoneNumber email state city address zipCode');
+        .select("id fullName phoneNumber email state city address zipCode");
 
       if (user) {
         return res.status(200).json(user);
@@ -154,13 +162,13 @@ export class UserController {
       const userId = req.user?.id;
 
       const userData = await User.findById(userId)
-        .populate({
-          path: 'bookings',
-          populate: {
-            path: 'service',
-          },
-        })
-        .select('id fullName phoneNumber email state city address zipCode');
+      .populate({
+        path: "bookings",
+        populate: {
+          path: "serviceId",
+        },
+      })
+        .select("id fullName phoneNumber email state city address zipCode");
 
       if (!userData) {
         return res.status(404).json({ message: "User not found" });

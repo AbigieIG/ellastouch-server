@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Category } from "../models/category"; // Ensure this is your Mongoose model
-import { Service } from "../models/service"; // Ensure this is your Mongoose model
+import { Category } from "../schemas/category"; 
+ 
 
 export class CategoryController {
   static async create(req: Request, res: Response): Promise<Response> {
@@ -10,7 +10,7 @@ export class CategoryController {
         return res.status(403).json({ message: "Unauthorized" });
       }
 
-      const categories = await Category.insertMany(req.body);
+      const categories = await Category.create(req.body);
 
       return res.status(201).json({
         message: "Categories created successfully",
@@ -27,8 +27,9 @@ export class CategoryController {
 
   static async getAll(req: Request, res: Response): Promise<Response> {
     try {
-      const categories = await Category.find().populate("services").exec();
+      const categories = await Category.find({}).populate("services");
 
+      console.log("Retrieved categories with services:", categories);
       return res.status(200).json(categories);
     } catch (error) {
       console.error("Error retrieving categories:", error);
@@ -38,21 +39,20 @@ export class CategoryController {
       });
     }
   }
+  
+  
 
   static async getById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
 
-      const category = await Category.findById(id).populate("services").exec();
+      const category = await Category.findById(id).populate("services");
 
       if (!category) {
         return res.status(404).json({ message: "Category not found" });
       }
 
-      return res.status(200).json({
-        message: "Category retrieved successfully",
-        data: category,
-      });
+      return res.status(200).json(category);
     } catch (error) {
       return res.status(500).json({
         message: "Internal server error",

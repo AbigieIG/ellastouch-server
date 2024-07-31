@@ -1,29 +1,10 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
+import { IBooking } from '../types/schemas';
 
-export interface IBooking extends Document {
-  id: string;
-  bookingId: string;
-  time: string;
-  date: string;
-  userId: mongoose.Types.ObjectId | null;
-  serviceId: mongoose.Types.ObjectId;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  state: string;
-  city: string;
-  address: string;
-  comment: string;
-  zipCode: string;
-}
 
 const BookingSchema: Schema<IBooking> = new Schema(
   {
-    id: {
-      type: String,
-      default: () => new mongoose.Types.ObjectId().toString(),
-      required: true,
-    },
+ 
     bookingId: {
       type: String,
       unique: true,
@@ -83,7 +64,7 @@ const BookingSchema: Schema<IBooking> = new Schema(
     },
     comment: {
       type: String,
-      required: true,
+      required: false,
     },
     zipCode: {
       type: String,

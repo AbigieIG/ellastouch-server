@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import cloudinary from "cloudinary";
-import { Gallery } from "../models/gallery"; // Update import according to Mongoose model location
+import { Gallery } from "../schemas/gallery"; 
 import { v4 as uuidv4 } from "uuid";
 
-// Initialize Cloudinary
+
 
 
 export class GalleryController {

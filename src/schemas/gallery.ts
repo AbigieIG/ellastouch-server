@@ -1,19 +1,11 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import { IGallery } from '../types/schemas';
 
-export interface IGallery extends Document {
-  id: string;
-  public_id: string;
-  category: string;
-  url: string;
-}
+
 
 const GallerySchema: Schema<IGallery> = new Schema(
   {
-    id: {
-      type: String,
-      default: () => new mongoose.Types.ObjectId().toString(),
-      required: true,
-    },
+  
     public_id: {
       type: String,
       required: true,

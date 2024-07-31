@@ -1,28 +1,33 @@
 import { Request, Response } from "express";
-import { IService, Service } from "../models/service";
-
-
+import { IService, Service } from "../schemas/service";
+import { Category } from "../schemas/category";
 
 export class ServiceController {
   static async create(req: Request, res: Response): Promise<Response> {
     try {
-      const isAdmin = req.user?.admin;
-      if (!isAdmin) {
-        return res.status(403).json({ message: "Unauthorized" });
+      const { categoryId, ...serviceData } = req.body;
+      
+      const existingCategory = await Category.findById(categoryId);
+  
+      if (!existingCategory) {
+        return res.status(404).json({ message: "Category with this ID does not exist" });
       }
 
-      const service = new Service(req.body);
-      await service.save();
+      const service = await Service.create({ ...serviceData, categoryId });
+  
+      existingCategory.services.push(service._id);
+      await existingCategory.save();
+  
       return res.status(201).json(service);
     } catch (error) {
       console.error("Error creating service:", error);
-      return res.status(500).json({ message: "Internal server error" });
+      return res.status(500).json({ message: error });
     }
   }
 
   static async findAll(req: Request, res: Response): Promise<Response> {
     try {
-      const services = await Service.find();
+      const services = await Service.find().populate("categoryId");
       return res.status(200).json(services);
     } catch (error) {
       console.error("Error finding services:", error);
@@ -36,7 +41,7 @@ export class ServiceController {
   ): Promise<Response> {
     try {
       const { id } = req.params;
-      const service = await Service.findById(id);
+      const service = await Service.findById(id).populate("categoryId");
 
       if (service) {
         return res.status(200).json(service);
@@ -106,7 +111,7 @@ export class ServiceController {
       const result = await Service.deleteOne({ _id: id });
 
       if (result.deletedCount > 0) {
-        return res.status(204).send(); // No content
+        return res.status(204).send();
       } else {
         return res.status(404).json({ message: "Service not found" });
       }

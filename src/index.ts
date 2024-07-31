@@ -80,7 +80,7 @@ class Server {
       console.log("MongoDB connection has been established successfully.");
     } catch (error) {
       console.error("Unable to connect to MongoDB:", error);
-      process.exit(1); // Exit the process with failure
+      process.exit(1); 
     }
   }
 

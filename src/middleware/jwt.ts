@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// Define the DecodedToken interface
 interface DecodedToken extends JwtPayload {
   id?: string;
   fullName: string;
@@ -11,7 +10,7 @@ interface DecodedToken extends JwtPayload {
   admin?: boolean;
 }
 
-// Extend the Request interface in this file
+
 declare global {
   namespace Express {
     interface Request {

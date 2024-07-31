@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
-import { Booking } from "../models/booking"; 
-import { Service } from "../models/service"; 
+import { Booking } from "../schemas/booking";
+import { Service } from "../schemas/service";
 import { BookingDto } from "../dto/index.dto";
 import { sendEmail } from "../middleware/nodemailer";
+import { User } from "../schemas/user";
 import { renderTemplate } from "../middleware/renderTemplate";
 
 export class BookingController {
@@ -11,12 +12,19 @@ export class BookingController {
     res: Response
   ): Promise<Response> {
     try {
-      const { serviceId, fullName, email, phoneNumber, state, city, address, zipCode, time, date } = req.body;
-
-      const service = await Service.findById(serviceId);
-      if (!service) {
-        return res.status(404).json({ message: "Service not found" });
-      }
+      const {
+        serviceId,
+        userId,
+        fullName,
+        email,
+        phoneNumber,
+        state,
+        city,
+        address,
+        zipCode,
+        time,
+        date,
+      } = req.body;
 
       if (
         !serviceId ||
@@ -33,14 +41,28 @@ export class BookingController {
         return res.status(400).json({ message: "Missing required fields" });
       }
 
+      const service = await Service.findById(serviceId);
+      if (!service) {
+        return res.status(404).json({ message: "Service not found" });
+      }
+
       const booking = new Booking(req.body);
       await booking.save();
+
+      if (userId) {
+        const user = await User.findById(userId);
+        if (user) {
+          user.bookings = user.bookings || [];
+          user.bookings.push(booking._id);
+          await user.save();
+        }
+      }
 
       const bookingConfirmationHtml = renderTemplate(
         "booking-confirmation.html",
         {
           fullName,
-          bookingId: booking._id,
+          bookingId: booking.bookingId,
           serviceName: service.name,
           date,
           time,
@@ -49,10 +71,11 @@ export class BookingController {
 
       await sendEmail(email, "Booking Confirmation", bookingConfirmationHtml);
 
+      // Notify admin of the new booking
       const newBookingNotificationHtml = renderTemplate(
         "new-booking-notification.html",
         {
-          bookingId: booking._id,
+          bookingId: booking.bookingId,
           fullName,
           serviceName: service.name,
           date,
@@ -63,11 +86,13 @@ export class BookingController {
       );
 
       const adminEmail = process.env.ADMIN_EMAIL;
-      await sendEmail(
-        adminEmail,
-        "New Booking Notification",
-        newBookingNotificationHtml
-      );
+      if (adminEmail) {
+        await sendEmail(
+          adminEmail,
+          "New Booking Notification",
+          newBookingNotificationHtml
+        );
+      }
 
       return res.status(201).json(booking);
     } catch (error) {
@@ -78,7 +103,7 @@ export class BookingController {
 
   static async findAll(req: Request, res: Response): Promise<Response> {
     try {
-      const bookings = await Booking.find().populate("service").exec();
+      const bookings = await Booking.find().populate("serviceId").exec();
       return res.status(200).json(bookings);
     } catch (error) {
       console.error("Error finding bookings:", error);
@@ -92,7 +117,7 @@ export class BookingController {
   ): Promise<Response> {
     try {
       const { id } = req.params;
-      const booking = await Booking.findById(id).populate("service").exec();
+      const booking = await Booking.findById(id).populate("serviceId").exec();
 
       if (booking) {
         return res.status(200).json(booking);
@@ -108,7 +133,9 @@ export class BookingController {
   static async findBookingById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
-      const booking = await Booking.findOne({ bookingId: id }).populate("service").exec();
+      const booking = await Booking.findOne({ bookingId: id })
+        .populate("serviceId")
+        .exec();
       if (!booking) {
         return res.status(404).json({ message: "Booking not found" });
       }
@@ -125,7 +152,16 @@ export class BookingController {
   ): Promise<Response> {
     try {
       const { id } = req.params;
-      const { serviceId, fullName, email, phoneNumber, state, city, address, zipCode } = req.body;
+      const {
+        serviceId,
+        fullName,
+        email,
+        phoneNumber,
+        state,
+        city,
+        address,
+        zipCode,
+      } = req.body;
 
       const booking = await Booking.findById(id);
       if (!booking) {
