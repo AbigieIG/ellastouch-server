@@ -123,6 +123,5 @@ class Server {
   }
 }
 
-const app = new Server().app;
+ new Server()
 
-export default app;
