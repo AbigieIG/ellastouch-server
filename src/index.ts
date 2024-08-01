@@ -124,3 +124,5 @@ class Server {
 }
 
 new Server();
+
+export default Server
