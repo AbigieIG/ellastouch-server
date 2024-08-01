@@ -119,5 +119,4 @@ class Server {
         });
     }
 }
-const app = new Server().app;
-exports.default = app;
+new Server();
