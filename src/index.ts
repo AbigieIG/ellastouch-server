@@ -123,6 +123,6 @@ class Server {
   }
 }
 
-new Server();
+const app = new Server().app;
 
-export default Server
+export default app;
