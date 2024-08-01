@@ -15,7 +15,6 @@ import cors from "cors";
 import helmet from "helmet";
 import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
-import path from "path";
 
 class Server {
   public app: Express;
@@ -36,13 +35,6 @@ class Server {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
     this.app.use(helmet());
-    this.app.use((req, res, next) => {
-      res.setHeader(
-        "Content-Security-Policy",
-        "default-src 'self'; frame-src 'self' https://www.google.com; img-src 'self' data: https://res.cloudinary.com blob:; font-src 'self' data:;"
-      );
-      next();
-    });
     this.app.use(
       cors({
         credentials: true,
@@ -51,14 +43,11 @@ class Server {
       })
     );
 
-    this.app.use(express.static(path.join(__dirname, "public")));
-
     cloudinary.v2.config({
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
       api_key: process.env.CLOUDINARY_API_KEY,
       api_secret: process.env.CLOUDINARY_API_SECRET,
     });
-
 
     this.testCloudinaryConnection();
 
@@ -80,7 +69,7 @@ class Server {
       console.log("MongoDB connection has been established successfully.");
     } catch (error) {
       console.error("Unable to connect to MongoDB:", error);
-      process.exit(1); 
+      process.exit(1);
     }
   }
 
@@ -102,10 +91,6 @@ class Server {
     this.app.use("/api/v1", galleryRoutes);
     this.app.use("/api/v1", adminRoutes);
     this.app.use("/api/v1", handleError.NotFound);
-
-    this.app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "public", "index.html"));
-    });
   }
 
   private errorHandling(): void {
@@ -123,5 +108,4 @@ class Server {
   }
 }
 
- new Server()
-
+new Server();
