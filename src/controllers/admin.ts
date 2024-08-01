@@ -70,7 +70,8 @@ export class AdminController {
 
       res.cookie("token", token, {
         httpOnly: false,
-        secure: process.env.NODE_ENV === "production",
+        secure: false,
+        sameSite: "none",
         maxAge: 3600000,
       });
 
