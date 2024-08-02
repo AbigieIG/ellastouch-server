@@ -108,4 +108,6 @@ class Server {
   }
 }
 
-new Server();
+const app = new Server();
+
+export default app
