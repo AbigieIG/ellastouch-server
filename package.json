@@ -5,17 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node public/index.js",
+    "start": "ts-node src/index.ts",
     "dev": "nodemon",
-    "build": "rimraf public && tsc && cp -r src/templates public/templates",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add -f public"
+    "build": "rimraf dist && tsc && cp -r src/templates dist/templates",
+    "vercel-build": "echo hello world",
+    "ts.check": "tsc --project tsconfig.json"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
