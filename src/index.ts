@@ -15,7 +15,7 @@ import cors from "cors";
 import helmet from "helmet";
 import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
-import { server } from "typescript";
+import path from "path";
 
 class Server {
   public app: Express;
@@ -39,10 +39,20 @@ class Server {
     this.app.use(
       cors({
         credentials: true,
-        origin: process.env.BASE_URL,
+        origin: "http://localhost:5173",
         methods: "GET,POST,PUT,DELETE",
       })
     );
+
+    this.app.use((req, res, next) => {
+      res.setHeader(
+        'Content-Security-Policy',
+        "default-src 'self'; frame-src 'self' https://www.google.com; img-src 'self' data: https://res.cloudinary.com blob:; font-src 'self' data:;"
+      );
+      next();
+    });
+
+    this.app.use(express.static(path.join(__dirname, "./public")));
 
     cloudinary.v2.config({
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -92,6 +102,9 @@ class Server {
     this.app.use("/api/v1", galleryRoutes);
     this.app.use("/api/v1", adminRoutes);
     this.app.use("/api/v1", handleError.NotFound);
+    this.app.use("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "public", "index.html"));
+    });
   }
 
   private errorHandling(): void {
@@ -112,4 +125,4 @@ class Server {
 
 const app = new Server().app;
 
-export default app
+export default app;
