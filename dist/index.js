@@ -29,7 +29,6 @@ const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const error_1 = __importDefault(require("./middleware/error"));
 const cloudinary_1 = __importDefault(require("cloudinary"));
-const path_1 = __importDefault(require("path"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -46,14 +45,9 @@ class Server {
         this.app.use((0, helmet_1.default)());
         this.app.use((0, cors_1.default)({
             credentials: true,
-            origin: "http://localhost:5173",
+            origin: process.env.BASE_URL,
             methods: "GET,POST,PUT,DELETE",
         }));
-        this.app.use((req, res, next) => {
-            res.setHeader('Content-Security-Policy', "default-src 'self'; frame-src 'self' https://www.google.com; img-src 'self' data: https://res.cloudinary.com blob:; font-src 'self' data:;");
-            next();
-        });
-        this.app.use(express_1.default.static(path_1.default.join(__dirname, "./public")));
         cloudinary_1.default.v2.config({
             cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
             api_key: process.env.CLOUDINARY_API_KEY,
@@ -99,8 +93,8 @@ class Server {
         this.app.use("/api/v1", gallery_1.default);
         this.app.use("/api/v1", admin_1.default);
         this.app.use("/api/v1", error_1.default.NotFound);
-        this.app.use("*", (req, res) => {
-            res.sendFile(path_1.default.join(__dirname, "public", "index.html"));
+        this.app.use("/", (req, res) => {
+            res.send("hello world");
         });
     }
     errorHandling() {
