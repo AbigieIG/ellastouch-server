@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
+    "start": "node public/index.js",
     "dev": "nodemon",
-    "build": "rimraf dist && tsc && cp -r src/templates dist/templates",
+    "build": "rimraf public && tsc && cp -r src/templates public/templates",
     "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add -f dist"
+    "add-build": "git add -f public"
   },
   "pre-commit": [
     "ts.check",
