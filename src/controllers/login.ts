@@ -28,14 +28,8 @@ export class AuthController {
         }
       );
 
-      res.cookie("token", token, {
-        httpOnly: false,
-        secure: false,
-        sameSite: "none",
-        maxAge: 3600000,
-      });
 
-      return res.status(200).json({ message: "Logged in successfully" });
+      return res.status(200).json({ user: user, token: token });
     } catch (error) {
       console.error("Error during login:", error);
       return res.status(500).json({ message: "Internal server error" });

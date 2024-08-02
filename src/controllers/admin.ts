@@ -48,7 +48,7 @@ export class AdminController {
     const { email, password } = req.body;
 
     try {
-      const user = await Admin.findOne({ email });
+      const user = await Admin.findOne({ email }).exec();
 
       if (!user) {
         return res.status(401).json({ message: "Invalid email" });
@@ -75,7 +75,7 @@ export class AdminController {
         maxAge: 3600000,
       });
 
-      return res.status(200).json(user);
+      return res.status(200).json({user, token});
     } catch (error) {
       return res.status(500).json({ message: "Internal server error", error });
     }

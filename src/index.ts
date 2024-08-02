@@ -38,7 +38,7 @@ class Server {
     this.app.use(
       cors({
         credentials: true,
-        origin: [process.env.BASE_URL, "http://localhost:5173"],
+        origin: "http://localhost:5173",
         methods: "GET,POST,PUT,DELETE",
       })
     );
