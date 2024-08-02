@@ -15,6 +15,7 @@ import cors from "cors";
 import helmet from "helmet";
 import handleError from "./middleware/error";
 import cloudinary from "cloudinary";
+import { server } from "typescript";
 
 class Server {
   public app: Express;
@@ -101,6 +102,7 @@ class Server {
     try {
       this.app.listen(this.port, () => {
         console.log(`Server is running on http://localhost:${this.port}`);
+        console.log("sdksd");
       });
     } catch (error) {
       console.error("Error starting the server:", error);
@@ -108,6 +110,6 @@ class Server {
   }
 }
 
-const app = new Server();
+const app = new Server().app;
 
 export default app

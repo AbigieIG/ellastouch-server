@@ -15,6 +15,6 @@
     "typeRoots": ["./src/types", "./node_modules/@types"],
     "types": ["node", "express"]
   },
-  "include": ["src/**/*.ts", "ellastouch-server/*.ts", "src/types/**/*.d.ts"],
+  "include": ["src/**/*.ts", "ellastouch-server/**/*.ts", "src/types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
+    "start": "node dist/index.js",
     "dev": "nodemon",
-    "build": "rimraf dist && tsc && cp -r src/templates dist/templates",
-    "vercel-build": "echo hello world",
+    "build": "tsc && cp -r src/templates dist/templates",
     "ts.check": "tsc --project tsconfig.json"
   },
   "keywords": [],
