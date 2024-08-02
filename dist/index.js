@@ -45,7 +45,7 @@ class Server {
         this.app.use((0, helmet_1.default)());
         this.app.use((0, cors_1.default)({
             credentials: true,
-            origin: "http://localhost:5173",
+            origin: process.env.BASE_URL,
             methods: "GET,POST,PUT,DELETE",
         }));
         cloudinary_1.default.v2.config({
