@@ -67,7 +67,7 @@ class AdminController {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
             try {
-                const user = yield admin_1.Admin.findOne({ email });
+                const user = yield admin_1.Admin.findOne({ email }).exec();
                 if (!user) {
                     return res.status(401).json({ message: "Invalid email" });
                 }
@@ -84,7 +84,7 @@ class AdminController {
                     sameSite: "none",
                     maxAge: 3600000,
                 });
-                return res.status(200).json(user);
+                return res.status(200).json({ user, token });
             }
             catch (error) {
                 return res.status(500).json({ message: "Internal server error", error });

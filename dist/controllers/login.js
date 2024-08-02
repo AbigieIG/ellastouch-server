@@ -32,13 +32,7 @@ class AuthController {
                 const token = jsonwebtoken_1.default.sign({ id: user._id, email: user.email, admin: false }, process.env.JWT_SECRET, {
                     expiresIn: "1h",
                 });
-                res.cookie("token", token, {
-                    httpOnly: false,
-                    secure: false,
-                    sameSite: "none",
-                    maxAge: 3600000,
-                });
-                return res.status(200).json({ message: "Logged in successfully" });
+                return res.status(200).json({ user: user, token: token });
             }
             catch (error) {
                 console.error("Error during login:", error);
